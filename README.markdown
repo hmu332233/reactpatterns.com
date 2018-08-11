@@ -20,20 +20,20 @@
 
 ## Stateless function
 
-[Stateless functions](https://facebook.github.io/react/docs/components-and-props.html) are a brilliant way to define highly reusable components. They don't hold `state`; they're just functions.
+[Stateless functions](https://facebook.github.io/react/docs/components-and-props.html)은 매우 재사용 가능한 컴포넌트를 정의하는 훌륭한 방법입니다. 이 컴포넌트들은 `state`를 가지지 않으며 단지 함수일뿐입니다.
 
 ```js
 const Greeting = () => <div>Hi there!</div>
 ```
 
-They get passed `props` and `context`.
+이 컴포넌트들은 `props`와 `context`를 받습니다.
 
 ```js
 const Greeting = (props, context) =>
   <div style={{color: context.color}}>Hi {props.name}!</div>
 ```
 
-They can define local variables, where a function block is used.
+이 함수 블럭이 사용되는 곳에서 이 컴포넌트들은 로컬 변수로 정의할 수 있습니다.
 
 ```js
 const Greeting = (props, context) => {
@@ -58,7 +58,7 @@ const Greeting = (props, context) =>
   <div style={getStyle(context)}>{props.name}</div>
 ```
 
-They can have defined `defaultProps`, `propTypes` and `contextTypes`.
+이 컴포넌트들은 `defaultProps`, `propTypes`, `contextTypes` 또한 정의할 수 있습니다.
 
 ```js
 Greeting.propTypes = {
