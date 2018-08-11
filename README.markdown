@@ -75,25 +75,26 @@ Greeting.contextTypes = {
 
 ## JSX spread attributes
 
-Spread Attributes is a JSX feature. It's syntactic sugar for passing all of an object's properties as JSX attributes.
+Spread Attributes는 JSX의 기능입니다. 이것은 JSX 속성으로 다른 객체의 모든 프로퍼티(property)를 넘기기 위한 문법적 설탕입니다.
 
-These two examples are equivalent.
+예를들어, 이 두 예제는 동일합니다.
 ```js
-// props written as attributes
+// 속성으로써 쓰여진 props
 <main className="main" role="main">{children}</main>
 
-// props "spread" from object
+// 오브젝트로부터 "뿌려진(spread)" props
 <main {...{className: "main", role: "main", children}} />
 ```
 
 Use this to forward `props` to underlying components.
+이것은 `props`를 근본적인 컴포넌트로 넘기는데 사용됩니다.
 
 ```js
 const FancyDiv = props =>
   <div className="fancy" {...props} />
 ```
 
-Now, I can expect `FancyDiv` to add the attributes it's concerned with as well as those it's not.
+이제, 우리는 `FancyDiv`에 쓰여진 속성뿐만 아니라 쓰여져있지 않은 속성들이 더해졌다는 것을 예상할 수 있습니다.
 
 ```js
 <FancyDiv data-id="my-fancy-div">So Fancy</FancyDiv>
@@ -101,7 +102,7 @@ Now, I can expect `FancyDiv` to add the attributes it's concerned with as well a
 // output: <div className="fancy" data-id="my-fancy-div">So Fancy</div>
 ```
 
-Keep in mind that order matters. If `props.className` is defined, it'll clobber the `className` defined by `FancyDiv`
+순서가 중요하다는 것을 명심해야합니다. 만약 `props.className`가 정의된다면, `FancyDiv`에 의해 정의된 `className`은 덮어씌워질 것입니다.
 
 ```js
 <FancyDiv className="my-fancy-div" />
@@ -109,15 +110,16 @@ Keep in mind that order matters. If `props.className` is defined, it'll clobber 
 // output: <div className="my-fancy-div"></div>
 ```
 
-We can make `FancyDiv`s className always "win" by placing it after the spread props `({...props})`.
+우리는 className을 spread props인 `({...props})`보다 뒤에 위치 시키는 방법으로  
+`FancyDiv`의 className을 항상 "win"으로 만들 수 있습니다.
 
 ```js
-// my `className` clobbers your `className`
+// 기존의 `className`이  props로 넘어온 `className`을 이깁니다!
 const FancyDiv = props =>
   <div {...props} className="fancy" />
 ```
 
-You should handle these types of props gracefully. In this case, I'll merge the author's `props.className` with the `className` needed to style my component.
+여러분은 이런 타입의 props를 우아하게 처리해야합니다. 아래의 예제를 보면 컴포넌트 사용자의 `props.className`과 컴포넌트를 스타일링하기 위해 필요한 `className`가 합쳐지도록 처리했다.
 
 ```js
 const FancyDiv = ({ className, ...props }) =>
