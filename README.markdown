@@ -132,23 +132,23 @@ const FancyDiv = ({ className, ...props }) =>
 
 ## destructuring arguments
 
-[Destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) is an ES2015 feature. It pairs nicely with `props` in Stateless Functions.
+[Destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)은 ES2015의 기능입니다. 이것은 stateless function의 `props`와 잘 어울립니다.
 
-These examples are equivalent.
+다음 두 예제들은 동일합니다.
 ```js
 const Greeting = props => <div>Hi {props.name}!</div>
 
 const Greeting = ({ name }) => <div>Hi {name}!</div>
 ```
 
-The [rest parameter syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters) (`...`) allows you to collect all the remaining properties in a new object.
+[rest parameter syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters) (`...`)은 선언되고 남은 오브젝트의 모든 프로퍼티들을 모아서 넘길 수 있도록 해줍니다.
 
 ```js
 const Greeting = ({ name, ...props }) =>
   <div>Hi {name}!</div>
 ```
 
-In turn, this object can use [JSX Spread Attributes](#jsx-spread-attributes) to forward `props` to the composed component.
+결국, 이 오브젝트는 조합된 컴포넌트에 `props`를 넘기기 위해서 [JSX Spread Attributes](#jsx-spread-attributes)를 사용할 수 있습니다.
 
 ```js
 const Greeting = ({ name, ...props }) =>
@@ -156,6 +156,7 @@ const Greeting = ({ name, ...props }) =>
 ```
 
 Avoid forwarding non-DOM `props` to composed components. Destructuring makes this very easy because you can create a new `props` object **without** component-specific `props`.
+조합된 컴포넌트에 non-DOM `props`를 전달하는 것을 피하세요. 컴포넌트 특화된 `props` 없이 새로운 `props` 오브젝트를 생성할 수 있기 때문에 Destructuring은 이것을 매우 쉽게 만듭니다.
 
 
 ## conditional rendering
