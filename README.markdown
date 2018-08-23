@@ -20,7 +20,8 @@
 
 ## Stateless function
 
-[Stateless functions](https://facebook.github.io/react/docs/components-and-props.html)은 매우 재사용 가능한 컴포넌트를 정의하는 훌륭한 방법입니다. 이 컴포넌트들은 `state`를 가지지 않으며 단지 함수일뿐입니다.
+[Stateless functions](https://facebook.github.io/react/docs/components-and-props.html)은 매우 재사용 가능한 컴포넌트를 정의하는 훌륭한 방법입니다.  
+이 컴포넌트들은 `state`를 가지지 않으며 단지 함수일뿐입니다.
 
 ```js
 const Greeting = () => <div>Hi there!</div>
@@ -102,7 +103,8 @@ const FancyDiv = props =>
 // output: <div className="fancy" data-id="my-fancy-div">So Fancy</div>
 ```
 
-순서가 중요하다는 것을 명심해야합니다. 만약 `props.className`가 정의된다면, `FancyDiv`에 의해 정의된 `className`은 덮어씌워질 것입니다.
+순서가 중요하다는 것을 명심해야합니다.  
+만약 `props.className`가 정의된다면, `FancyDiv`에 의해 정의된 `className`은 덮어씌워질 것입니다.
 
 ```js
 <FancyDiv className="my-fancy-div" />
@@ -119,7 +121,8 @@ const FancyDiv = props =>
   <div {...props} className="fancy" />
 ```
 
-여러분은 이런 타입의 props를 우아하게 처리해야합니다. 아래의 예제를 보면 컴포넌트 사용자의 `props.className`과 컴포넌트를 스타일링하기 위해 필요한 `className`가 합쳐지도록 처리했다.
+여러분은 이런 타입의 props를 우아하게 처리해야합니다.  
+아래의 예제를 보면 컴포넌트 사용자의 `props.className`과 컴포넌트를 스타일링하기 위해 필요한 `className`가 합쳐지도록 처리했다.
 
 ```js
 const FancyDiv = ({ className, ...props }) =>
@@ -132,7 +135,8 @@ const FancyDiv = ({ className, ...props }) =>
 
 ## destructuring arguments
 
-[Destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)은 ES2015의 기능입니다. 이것은 stateless function의 `props`와 잘 어울립니다.
+[Destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)은 ES2015의 기능입니다.  
+이것은 stateless function의 `props`와 잘 어울립니다.
 
 다음 두 예제들은 동일합니다.
 ```js
@@ -161,7 +165,8 @@ Avoid forwarding non-DOM `props` to composed components. Destructuring makes thi
 
 ## conditional rendering
 
-You can't use regular if/else conditions inside a component definition. [The conditional (ternary) operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) is your friend.
+컴포넌트 정의 안에서 여러분은 일반적인 if/else 조건문을 사용할 수 없습니다.  
+대신 [The conditional (ternary) operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator)가 여러분의 친구가 되어줄 것입니다.
 
 `if`
 
