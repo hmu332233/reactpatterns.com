@@ -238,9 +238,9 @@ Avoid forwarding non-DOM `props` to composed components. Destructuring makes thi
 
 ## Array as children
 
-Providing an array as `children` is a very common. It's how lists are drawn in React.
+`children`으로 array를 제공하는 것은 매우 일반적이다. 이것은 리엑트에서 리스트가 그려지는 방법입니다.
 
-We use `map()` to create an array of React Elements for every value in the array.
+우리는 array에 있는 모든 값에 대해 리엑트 엘리먼트들을 만들기 위해서 `map()`을 사용합니다.
 
 ```js
 <ul>
@@ -250,7 +250,7 @@ We use `map()` to create an array of React Elements for every value in the array
 </ul>
 ```
 
-That's equivalent to providing a literal `array`.
+이것은 literal형(<li>)의 `array`를 제공하는 것과 같습니다.
 
 ```js
 <ul>
@@ -261,7 +261,7 @@ That's equivalent to providing a literal `array`.
 </ul>
 ```
 
-This pattern can be combined with destructuring, JSX Spread Attributes, and other components, for some serious terseness.
+이 패턴은 `destructuring`와 `JSX Spread Attributes`와 다른 컴포넌트들과 결합될 수 있습니다. (매우 간결해집니다!)
 
 ```js
 <ul>
