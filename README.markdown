@@ -206,7 +206,7 @@ Avoid forwarding non-DOM `props` to composed components. Destructuring makes thi
 
 ## Children types
 
-React can render `children` of many types. In most cases it's either an `array` or a `string`.
+리엑트는 많은 타입의 `children`을 렌더링 할 수 있으며 대부분의 경우 `array` 또는 `string`입니다.
 
 `string`
 
@@ -224,7 +224,8 @@ React can render `children` of many types. In most cases it's either an `array` 
 </div>
 ```
 
-Functions may be used as children. However, it requires [coordination with the parent component](#render-callback) to be useful.
+함수들도 `children`으로써 사용될 수 있습니다.  
+[coordination with the parent component](#render-callback)가 유용하게 사용됩니다.
 
 `function`
 
