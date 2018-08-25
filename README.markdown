@@ -275,28 +275,35 @@ Avoid forwarding non-DOM `props` to composed components. Destructuring makes thi
 ## Function as children
 
 Using a function as `children` isn't inherently useful.
+`children`으로 function을 사용하는 것은 선척적으로 유용하지 않습니다.
 
 ```js
 <div>{() => { return "hello world!"}()}</div>
 ```
 
 However, it can be used in component authoring for some serious power. This technique is commonly referred to as `render callbacks`.
+그러나, (component authoring for some serious power) 안에서 사용될 수 있습니다.  
+이 기술은 일반적으로 `render callbacks`라고 언급됩니다.
 
-This is a powerful technique used by libraries like [ReactMotion](https://github.com/chenglou/react-motion). When applied, rendering logic can be kept in the owner component, instead of being delegated.
+이것은 [ReactMotion](https://github.com/chenglou/react-motion)와 같은 라이브러리에서도 사용되는 파워풀한 기술입니다.  
+이것이 적용되었을 때, 렌더링 로직은 위임(delegate)되는 것 대신 오너 컴포넌트 안에 유지될 수 있습니다.
 
-See [Render callbacks](#render-callback), for more details.
+자세히 알기 위해서는 [Render callbacks](#render-callback)를 참고하세요.
 
 ## Render callback
 
 Here's a component that uses a Render callback. It's not useful, but it's an easy illustration to start with.
+여기 `Render callback`이 사용되는 컴포넌트가 있습니다.  
+이것은 유용하지는 않지만, 시작하기에 이해하기 쉬운 예제입니다.
 
 ```js
 const Width = ({ children }) => children(500)
 ```
 
-The component calls `children` as a function, with some number of arguments. Here, it's the number `500`.
+이 컴포넌트는 `children`을 몇가지 arguments와 함께 함수로써 호출합니다.  
+여기에 `500`이라는 숫자가 있습니다.
 
-To use this component, we give it a [function as `children`](#function-as-children).
+이 컴포넌트를 사용하기 위해서, 우리는 이 컴포넌트에게 [function as `children`](#function-as-children)를 넘겨줍니다.
 
 ```js
 <Width>
@@ -304,13 +311,13 @@ To use this component, we give it a [function as `children`](#function-as-childr
 </Width>
 ```
 
-We get this output.
+우리는 아래와 같은 결과를 얻을 수 있습니다.
 
 ```js
 <div>window is 500</div>
 ```
 
-With this setup, we can use this `width` to make rendering decisions.
+이 설정과 함께, 우리는 `width`를 사용하여 렌더링 결정을 할 수 있습니다.
 
 ```js
 <Width>
@@ -322,7 +329,7 @@ With this setup, we can use this `width` to make rendering decisions.
 </Width>
 ```
 
-If we plan to use this condition a lot, we can define another components to encapsulate the reused logic.
+만약 우리가 더 많은 분기를 사용하고자 한다면, 우리는 재사용된 로직을 요약하는(encapsulate) 다른 컴포넌트를 정의할 수 있습니다.
 
 ```js
 const MinWidth = ({ width: minWidth, children }) =>
@@ -335,8 +342,8 @@ const MinWidth = ({ width: minWidth, children }) =>
   </Width>
 ```
 
-
-Obviously a static `Width` component isn't useful but one that watches the browser window is. Here's a sample implementation.
+분명히 고정된 `Width` 컴포넌트는 유용하지 않지만 브라우저 윈도우를 감시하는 컴포넌트는 유용합니다.  
+여기 샘플이 있습니다.
 
 ```js
 class WindowWidth extends React.Component {
@@ -362,8 +369,7 @@ class WindowWidth extends React.Component {
 }
 ```
 
-Many developers favor [Higher Order Components](#higher-order-component) for this type of functionality. It's a matter of preference.
-
+많은 개발자들이 이러한 타입의 기능을 위해 [Higher Order Components](#higher-order-component)를 선호합니다. 이것은 취향의 차이입니다.
 
 ## Children pass-through
 
